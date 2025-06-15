@@ -1,5 +1,5 @@
 Project Title
-A concise, one-paragraph description of your project. Explain what it does and why it's useful.
+**AI_Native_Journey**! This repository is dedicated to all things testing within the realm of AI-native applications. Dive in to explore, collaborate, and help us ensure the reliability and robustness of our AI systems
 
 Table of Contents
 About The Project
