@@ -10,9 +10,7 @@ Welcome to the "Hello World" Journey repository! This project documents the evol
 
 You can view and interact with the final presentation website, which was deployed using Netlify:
 
-**[View the Live Presentation Here]([[https://your-netlify-link.netlify.app/](https://ai-cohort-message-generator.netlify.app/)](https://ai-cohort-message-generator.netlify.app/))**
-
-*(Note: Replace `your-netlify-link.netlify.app` with the actual URL from your Netlify deployment.)*
+**[View the Live Presentation Here](https://ai-cohort-message-generator.netlify.app/)**
 
 ---
 
