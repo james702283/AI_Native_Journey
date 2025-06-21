@@ -6,11 +6,12 @@ Welcome to the "Hello World" Journey repository! This project documents the evol
 
 ---
 
-## 🚀 Live Demo
+## 🚀 Live Demos
 
-You can view and interact with the final presentation website, which was deployed using Netlify:
+This project has two live deployments on Netlify:
 
-**[View the Live Presentation Here](https://ai-cohort-message-generator.netlify.app/)**
+* **[View the Interactive Presentation](https://hello-world-script-demo.netlify.app/)**
+* **[View the Standalone Message Generator App](https://ai-cohort-message-generator.netlify.app/)**
 
 ---
 
@@ -34,11 +35,11 @@ This project was built iteratively, with each step adding a new layer of functio
 
 2.  **Adding Intelligence:** The Python script was enhanced with conditional logic. An `if/else` statement was added to check for a specific name ("James Nelson") and provide a unique greeting. Further logic was added using the `datetime` library to make the greetings time-sensitive (e.g., "Good morning").
 
-3.  **The Leap to the Web:** The core logic was translated from Python to JavaScript to run in a web browser. This logic was embedded in an HTML file, transforming the command-line tool into an interactive webpage with input fields and buttons.
+3.  **The Leap to the Web (`generator.html`):** The core logic was translated from Python to JavaScript and built into a standalone web page. This transformed the command-line tool into an interactive application.
 
-4.  **Professional UI/UX Design:** The focus shifted to the user experience. The webpage was styled using Tailwind CSS, incorporating the official Pursuit branding (logo and fonts) and a professional background image to create a polished, visually appealing tool.
+4.  **Professional UI/UX Design:** The focus shifted to the user experience. The generator page was styled using Tailwind CSS, incorporating the official Pursuit branding (logo and fonts) and a professional background image to create a polished, visually appealing tool.
 
-5.  **The Final Product (presentation.html):** The project culminated in the creation of an interactive, multi-slide presentation to showcase the journey. The web application itself was embedded within the presentation, creating a "demo within a demo" and providing a comprehensive overview of the project's evolution.
+5.  **The Final Product (`presentation.html`):** The project culminated in the creation of an interactive, multi-slide presentation to showcase the journey. The generator app itself was embedded within the presentation, creating a "demo within a demo" and providing a comprehensive overview of the project's evolution.
 
 ---
 
