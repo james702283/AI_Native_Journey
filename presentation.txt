@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pursuit AI Cohort: "Hello World Script" Demo</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter and Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000; /* Pure black background */
+        }
+        .header-font {
+            font-family: 'Poppins', sans-serif;
+        }
+        /* Styling for slide transitions */
+        .slide {
+            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+            min-height: 550px; /* Ensure slides have a consistent height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden; /* Hide overflowing parts of the background */
+        }
+        .slide-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+            transition: transform 1.2s ease-in-out, opacity 0.6s ease-in-out;
+        }
+        /* Zoom effect on the active slide's background */
+        .slide:not(.hidden) .slide-background {
+            transform: scale(1.05);
+        }
+        .slide-content {
+            position: relative;
+            z-index: 1;
+        }
+        .slide.hidden {
+            opacity: 0;
+            transform: scale(0.98);
+            position: absolute;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="text-slate-200 flex flex-col items-center justify-center min-h-screen p-4">
+
+    <main class="w-full max-w-4xl mx-auto">
+        <div id="presentation-container" class="relative bg-black border border-slate-800 rounded-2xl shadow-2xl overflow-hidden">
+            
+            <!-- Slide 1: Introduction -->
+            <div id="slide-1" class="slide p-8 md:p-12">
+                <div class="slide-background" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?q=80&w=2070&auto=format&fit=crop');"></div>
+                <div class="slide-content text-center">
+                    <p class="header-font text-sm font-semibold text-blue-400 tracking-wider">Pursuit AI Cohort "Hello World Script" Demo</p>
+                    <h1 class="header-font text-4xl md:text-5xl font-extrabold text-white mt-4">From Python to a Polished Web App</h1>
+                    <p class="mt-6 text-lg text-slate-300 max-w-2xl mx-auto">
+                        Today, I want to share the story of a project that started with a simple idea and evolved into a fully interactive and intelligent web application.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Slide 2: Live Demo -->
+            <div id="slide-2" class="slide p-8 md:p-12 hidden">
+                 <div class="slide-background" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726a?q=80&w=2070&auto=format&fit=crop');"></div>
+                 <div class="slide-content">
+                    <h2 class="header-font text-3xl font-bold text-center text-white mb-6">Live Demo</h2>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                        <div class="text-slate-200 space-y-4 bg-slate-900/50 p-4 rounded-lg border border-slate-700 backdrop-blur-sm">
+                            <p class="font-bold text-blue-300 text-lg">Try a standard entry:</p>
+                            <p>Type in a name like "Alex", you'll get a time-sensitive greeting based on your local clock.</p>
+                            <p class="font-bold text-blue-300 text-lg mt-4">Now try the special logic:</p>
+                            <p>The app recognizes specific users. Type "James Nelson" to see its unique, custom-tailored message.</p>
+                        </div>
+                        <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-700 space-y-4 backdrop-blur-sm">
+                            <div>
+                                <label for="demoName" class="block text-sm font-medium text-slate-300 mb-2">Name:</label>
+                                <input type="text" id="demoName" class="w-full bg-slate-800 border border-slate-600 rounded-lg p-2 text-white" placeholder="e.g., Alex">
+                            </div>
+                            <button id="demoBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">Generate</button>
+                            <div id="demoOutput" class="mt-2 min-h-[50px] bg-slate-800 rounded-lg p-3 text-center flex items-center justify-center">
+                                <p class="italic text-slate-400">Message appears here...</p>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+
+            <!-- Slide 3: How it Was Made -->
+            <div id="slide-3" class="slide p-8 md:p-12 hidden">
+                <div class="slide-background" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1587440871875-191322ee64b0?q=80&w=2071&auto=format&fit=crop');"></div>
+                <div class="slide-content">
+                    <h2 class="header-font text-3xl font-bold text-center text-white mb-8">The "How": An Iterative Process</h2>
+                    <div class="space-y-6 max-w-2xl mx-auto">
+                        <div class="flex items-start gap-4 bg-slate-900/50 p-4 rounded-lg border border-slate-800 backdrop-blur-sm"><div class="text-3xl font-bold text-blue-400">1</div><div><h3 class="font-bold text-lg text-white">The Foundation</h3><p class="text-slate-300">It all started with a simple Python script to print a basic message.</p></div></div>
+                        <div class="flex items-start gap-4 bg-slate-900/50 p-4 rounded-lg border border-slate-800 backdrop-blur-sm"><div class="text-3xl font-bold text-blue-400">2</div><div><h3 class="font-bold text-lg text-white">Adding Intelligence</h3><p class="text-slate-300">Conditional `if/else` logic was added for special cases and time-of-day greetings.</p></div></div>
+                        <div class="flex items-start gap-4 bg-slate-900/50 p-4 rounded-lg border border-slate-800 backdrop-blur-sm"><div class="text-3xl font-bold text-blue-400">3</div><div><h3 class="font-bold text-lg text-white">The Leap to Web</h3><p class="text-slate-300">The logic was translated to JavaScript and wrapped in an HTML structure, making it a real application.</p></div></div>
+                        <div class="flex items-start gap-4 bg-slate-900/50 p-4 rounded-lg border border-slate-800 backdrop-blur-sm"><div class="text-3xl font-bold text-blue-400">4</div><div><h3 class="font-bold text-lg text-white">Focusing on Design</h3><p class="text-slate-300">Finally, we incorporated professional branding, a background, and a fallback for the logo.</p></div></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 4: Key Features -->
+            <div id="slide-4" class="slide p-8 md:p-12 hidden">
+                <div class="slide-background" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop');"></div>
+                <div class="slide-content">
+                    <h2 class="header-font text-3xl font-bold text-center text-white mb-8">Key Features & Benefits</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                        <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-700 backdrop-blur-sm"><h3 class="font-bold text-lg text-blue-300">Conditional Logic</h3><p class="text-slate-300 mt-2">Uses `if/else` logic to make intelligent, adaptive decisions.</p></div>
+                        <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-700 backdrop-blur-sm"><h3 class="font-bold text-lg text-blue-300">User-Centric Design</h3><p class="text-slate-300 mt-2">Every step focused on creating a great, visually appealing experience.</p></div>
+                        <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-700 backdrop-blur-sm"><h3 class="font-bold text-lg text-blue-300">Scalability</h3><p class="text-slate-300 mt-2">Proves a small idea can scale into a robust, shareable web application.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5: Conclusion -->
+            <div id="slide-5" class="slide p-8 md:p-12 hidden">
+                 <div class="slide-background" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2020&auto=format&fit=crop');"></div>
+                 <div class="slide-content text-center">
+                    <h2 class="header-font text-3xl font-bold text-white">More Than Just a Greeting</h2>
+                    <p class="mt-6 text-lg text-slate-300 max-w-2xl mx-auto">
+                        In the end, this project is a story about the journey of an idea—from a few lines of code to a smart, interactive, and beautifully designed web tool. Thank you.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Navigation Controls -->
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-black/50 backdrop-blur-sm border-t border-slate-800">
+                <div class="max-w-4xl mx-auto flex justify-between items-center">
+                    <button id="prevBtn" class="bg-slate-700 hover:bg-slate-600 text-white font-bold py-2 px-4 rounded-lg transition opacity-50" disabled>Previous</button>
+                    <div id="slide-counter" class="text-sm text-slate-400">1 / 5</div>
+                    <button id="nextBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition">Next</button>
+                </div>
+            </div>
+        </div>
+        <!-- Gemini Footer -->
+        <footer class="p-4 text-center">
+            <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-slate-300 transition">
+                <span>Built with</span>
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.24 14.24c-.39.39-1.02.39-1.41 0L12 13.41l-2.83 2.83c-.39.39-1.02.39-1.41 0-.39-.39-.39-1.02 0-1.41L10.59 12 7.76 9.17c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0L12 10.59l2.83-2.83c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41L13.41 12l2.83 2.83c.39.39.39 1.02 0 1.41z"></path></svg>
+                <span>Gemini</span>
+            </a>
+        </footer>
+    </main>
+
+    <script>
+        // --- SCRIPT SECTION ---
+        let currentSlide = 1;
+        const totalSlides = 5;
+
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const slideCounter = document.getElementById('slide-counter');
+
+        function showSlide(slideNumber) {
+            for (let i = 1; i <= totalSlides; i++) {
+                document.getElementById(`slide-${i}`).classList.add('hidden');
+            }
+            document.getElementById(`slide-${slideNumber}`).classList.remove('hidden');
+            
+            slideCounter.textContent = `${slideNumber} / ${totalSlides}`;
+            
+            prevBtn.disabled = slideNumber === 1;
+            nextBtn.disabled = slideNumber === totalSlides;
+            prevBtn.classList.toggle('opacity-50', slideNumber === 1);
+            nextBtn.classList.toggle('opacity-50', slideNumber === totalSlides);
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 1) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        });
+
+        const demoNameInput = document.getElementById('demoName');
+        const demoBtn = document.getElementById('demoBtn');
+        const demoOutput = document.getElementById('demoOutput');
+
+        demoBtn.addEventListener('click', () => {
+            const name = demoNameInput.value.trim() || "Anonymous";
+            let message = '';
+            if (name.toLowerCase() === "james nelson") {
+                message = `Hey, it's the awesome AI Director, James Nelson!`;
+            } else {
+                const currentHour = new Date().getHours();
+                let greeting = '';
+                if (currentHour >= 5 && currentHour < 12) greeting = "Good morning";
+                else if (currentHour >= 12 && currentHour < 18) greeting = "Good afternoon";
+                else greeting = "Good evening";
+                message = `${greeting}, ${name}! Welcome to the demo.`;
+            }
+            demoOutput.innerHTML = `<p class="font-semibold text-white">${message}</p>`;
+        });
+        
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
